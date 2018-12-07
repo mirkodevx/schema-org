@@ -31,7 +31,7 @@
     "autoload": {
         "psr-4": {
             "Spatie\\SchemaOrg\\": "src",
-            "Spatie\\SchemaOrg\\Generator\\": "generator",
+            "Spatie\\SchemaOrg\\Generator\\": "generator"
         }
     },
     "autoload-dev": {
