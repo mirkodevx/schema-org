@@ -29,10 +29,13 @@ class GenerateCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Generating package code...');
+
         $generator = new PackageGenerator();
+
         $sources = [
             'core' => 'https://raw.githubusercontent.com/schemaorg/schemaorg/master/data/schema.rdfa',
         ];
+
         if ($input->getOption('extensions')) {
             $extensions = explode(',', $input->getOption('extensions'));
             foreach ($extensions as $extension) {
@@ -50,12 +53,17 @@ class GenerateCommand extends Command
                 }
             }
         }
+
         $definitions = new Definitions($sources);
+
         if (! $input->getOption('local')) {
             $definitions->preload();
         }
+
         $generator->generate($definitions);
+
         $output->writeln('Done!');
+
         return 0;
     }
 }
